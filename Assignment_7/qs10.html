@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Generator</title>
+</head>
+<body>
+    <input type="number" id="rows" placeholder="Rows">
+    <input type="number" id="cols" placeholder="Columns">
+    <button onclick="generateTable()">Generate</button>
+    <div id="tableContainer"></div>
+
+    <script>
+        function generateTable() {
+            let rows = +document.getElementById("rows").value;
+            let cols = +document.getElementById("cols").value;
+            let table = "<table border='1'>";
+            for (let i = 0; i < rows; i++) {
+                table += "<tr>";
+                for (let j = 0; j < cols; j++) {
+                    table += "<td>Cell</td>";
+                }
+                table += "</tr>";
+            }
+            document.getElementById("tableContainer").innerHTML = table + "</table>";
+        }
+    </script>
+</body>
+</html>

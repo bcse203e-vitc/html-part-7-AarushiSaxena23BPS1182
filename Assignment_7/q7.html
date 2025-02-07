@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Finder</title>
+</head>
+<body>
+    <h3>Enter numbers separated by commas:</h3>
+    <input type="text" id="input" placeholder="e.g., 1,2,3,3,4,5">
+    <button onclick="findNumbers()">Find Numbers</button>
+    <p id="duplicates"></p>
+    <p id="unique"></p>
+    <p id="secondLargest"></p>
+    <p id="thirdLargest"></p>
+
+    <script>
+        function findNumbers() {
+            let input = document.getElementById("input").value;
+            let arr = input.split(",").map(num => parseInt(num.trim())).filter(num => !isNaN(num));
+            
+            let seen = new Set();
+            let duplicates = new Set();
+            let unique = [];
+            
+            for (let num of arr) {
+                if (seen.has(num)) {
+                    duplicates.add(num);
+                } else {
+                    seen.add(num);
+                    unique.push(num);
+                }
+            }
+            
+            unique.sort((a, b) => b - a);
+            let secondLargest = unique.length > 1 ? unique[1] : "Not available";
+            let thirdLargest = unique.length > 2 ? unique[2] : "Not available";
+            
+            document.getElementById("duplicates").textContent = "Duplicates: " + (duplicates.size ? Array.from(duplicates).join(", ") : "None");
+            document.getElementById("unique").textContent = "Unique Values: " + unique.join(", ");
+            document.getElementById("secondLargest").textContent = "Second Largest: " + secondLargest;
+            document.getElementById("thirdLargest").textContent = "Third Largest: " + thirdLargest;
+        }
+    </script>
+</body>
+</html>
