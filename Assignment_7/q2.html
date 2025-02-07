@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q2</title>
+</head>
+<body>
+    <h1>Fiz Buzz!</h1>
+    <button onclick="fizzbuzz()">Click to play</button>
+    <script>
+        function fizzbuzz(){
+            for(let i=1;i<=50;i++){
+                if(i%3==0 && i%5==0){
+                    alert("number is : " + i +" FizzBuzz!");
+                }
+                else if(i%3==0 && i%5!=0){
+                    alert("number is : " + i +" Fizz!");
+                }
+                else if(i%3!=0 && i%5==0){
+                    alert("number is : " + i +" Buzz!");
+                }
+                else{
+                    alert("number is : " + i );
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
+
