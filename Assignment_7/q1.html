@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q1</title>
+</head>
+<body>
+    <h1>Guess the number between 1-100!</h1>
+    <button onclick="guessRand()">Click to play</button>
+    <script>
+        function guessRand(){
+            const max = 100;
+            const randomNum = Math.floor(Math.random() * max) + 1;
+            let guess = parseInt(prompt("Guess the number between 1 and 100:"));
+            let guessesLeft = 5;
+            while(guess !== randomNum && guessesLeft > 0) {
+                if(guess > randomNum) {
+                    guessesLeft--;
+                    guess = parseInt(prompt("Too high! Guess again. You have " + guessesLeft + " guesses left."));
+                } else {
+                    guessesLeft--;
+                    guess = parseInt(prompt("Too low! Guess again. You have " + guessesLeft + " guesses left."));
+                }
+            }
+
+            if(guess === randomNum) {
+                alert("Congratulations! You guessed the number!");
+            } else {
+                alert("Out of guesses! The number was " + randomNum);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
